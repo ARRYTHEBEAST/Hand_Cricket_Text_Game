@@ -1,0 +1,31 @@
+import random
+num = [1,2,3,4,5,6,7,8,9,10]
+begin = input("Game is set up let's begin(yes/no)  ")
+game_on =False
+score = 0
+high_score = 0
+
+if begin=='yes':
+    game_on=True
+else:
+    game_on=False
+    
+while game_on==True:
+    player_choice = int(input('Enter The Score You Want To Hit:  '))
+    comp_choice = random.choice(num)
+    if comp_choice==player_choice:
+        print(f"Your choice was {player_choice} and the computer also chose {comp_choice}, So GAME OVER")
+        print(f"The final score reached was {score}")
+        print(f"The highest score was{high_score}")
+        if score>high_score:
+            high_score = score
+        begin = input("Do you want to play again ")
+        if begin=='yes':
+            continue
+        else:
+            break
+    else:
+        score= score+player_choice
+        print(f'the computer chose {comp_choice}')
+        print(f"The Score is {score}")
+    
